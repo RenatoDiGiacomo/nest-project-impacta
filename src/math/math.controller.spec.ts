@@ -2,13 +2,15 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import { MathController } from './math.controller';
 import { MathService } from './math.service';
+import { MathV2Controller } from 'src/math.v2/math.v2.controller';
+
 
 describe('MathController', () => {
     let appController: MathController;
 
     beforeEach(async () => {
         const app: TestingModule = await Test.createTestingModule({
-            controllers: [MathController],
+            controllers: [MathController, MathV2Controller],
             providers: [MathService],
         }).compile();
 

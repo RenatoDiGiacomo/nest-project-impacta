@@ -1,7 +1,10 @@
-import { Controller, Get, Query } from "@nestjs/common";
+import { Controller, Get, Query, VERSION_NEUTRAL } from "@nestjs/common";
 import { MathService } from "./math.service";
 
-@Controller('math')
+@Controller({
+    path: 'math',
+    version: ['1', VERSION_NEUTRAL]
+})
 export class MathController {
     constructor(private readonly appService: MathService) { }
     @Get('soma')

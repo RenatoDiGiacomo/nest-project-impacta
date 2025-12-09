@@ -1,15 +1,16 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 
 import { AppService } from './app.service';
-import e from 'express';
-import { AppMathCalcService } from './math/app.math.service';
-import { AppMathCalcController } from './math/app.mathcalc.controller';
 import { MathModule } from './math/math.module';
+import { LogMiddleware } from './middlewares/log.middleware';
 
 @Module({
   imports: [MathModule],
-  controllers: [AppController],
-  providers: [AppService],
+
 })
-export class AppModule { }
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LogMiddleware).forRoutes('math');
+  }
+}

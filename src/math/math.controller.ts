@@ -1,9 +1,9 @@
 import { Controller, Get, Query } from "@nestjs/common";
-import { AppMathCalcService } from "./app.math.service";
+import { MathService } from "./math.service";
 
-@Controller()
-export class AppMathCalcController {
-    constructor(private readonly appService: AppMathCalcService) { }
+@Controller('math')
+export class MathController {
+    constructor(private readonly appService: MathService) { }
     @Get('soma')
     getSomaController(@Query('a') a: string, @Query('b') b: string): number {
         return this.appService.getSoma(Number(a), Number(b));

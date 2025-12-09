@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 
 @Injectable()
-export class AppMathCalcService {
+export class MathService {
     getSoma(a: number, b: number): number {
         return a + b;
     }

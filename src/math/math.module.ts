@@ -1,10 +1,11 @@
 import { Module } from "@nestjs/common";
-import { AppMathCalcController } from "./app.mathcalc.controller";
-import { AppMathCalcService } from "./app.math.service";
+import { MathController } from "./math.controller";
+import { MathService } from "./math.service";
+
 
 @Module({
     imports: [],
-    controllers: [AppMathCalcController],
-    providers: [AppMathCalcService],
+    controllers: [MathController],
+    providers: [MathService],
 })
 export class MathModule { }
